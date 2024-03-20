@@ -4,40 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
     <title>Document</title>
     <style>
-        .felx-container{
+        .wrapper{
             display: flex;
             flex-flow: row wrap;
-            justify-content: space-around;
-            padding: 0;
-            margin: 0;
-            list-style: none;
+            font-weight: bold;
+            text-align: center;
         }
 
-        .felx-item{
+        .wrapper > * {
+            padding: 10px;
+            flex: 1 100%;
+        }
+
+        .header{
             background: tomato;
-            padding: 5px;
-            width: 200px;
-            height: 150px;
-            margin-top: 10px;
-            line-height: 150px;
-            color: white;
-            font-weight: bold;
-            font-size: 3em;
-            text-align: center;
+        }
+
+        .footer{
+            background: lightgreen;
+        }
+
+        .main{
+            text-align: left;
+            background: deepskyblue;
+        }
+
+        .aside-1 {
+            background: gold;
+        }
+
+        .aside-2 {
+            background: hotpink;
+        }
+
+        @media all and (min-width: 600px) {
+            .aside { flex: 1 0 0;}
+        }
+
+        @media all and (min-width: 800px){
+            .main{ flex:3 0px;}
+            .aside-1{ order: 1;}
+            .main{ order: 2;}
+            .aside-2{ order: 3;}
+            .footer{ order:4;}
+        }
+        
+        body{
+            padding:  2em;
         }
     </style>
 </head>
 <body>
-    <ul class="flex-container">
-        <li class="flex-item">1</li>
-        <li class="flex-item">2</li>
-        <li class="flex-item">3</li>
-        <li class="flex-item">4</li>
-        <li class="flex-item">5</li>
-        <li class="flex-item">6</li>
-    </ul>
+    <div class="wrapper">
+        <header class="header">Header</header>
+        <article class="main">
+            <p>Universitas Gadjah Mada (UGM) adalah perguruan tinggi negeri 
+            di Daerah Istimewa Yogyakarta, Indonesia. Universitas Gadjah Mada 
+            merupakan perguruan tinggi pertama yang didirikan oleh Pemerintah 
+            Indonesia setelah Indonesia merdeka. UGM berdiri pada tanggal 19 
+            Desember 1949 dengan mengukuhkan Peraturan Pemerintah Nomor 23 Tahun 
+            1949 tentang Peraturan Tentang Penggabungan Perguruan Tinggi Menjadi 
+            Universiteit tanggal 16 Desember 1949.</p>
+        </article>
+        <aside class="aside aside-1">Aside 1</aside>
+        <aside class="aside aside-2">Aside 2</aside>
+        <footer class="footer">Footer</footer>
+    </div>   
 </body>
 </html>
